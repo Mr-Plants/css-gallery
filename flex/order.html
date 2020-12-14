@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      background: aqua;
+    }
+
+    li:nth-child(1) {
+      order: 3;
+    }
+
+    li:nth-child(2) {
+      order: -2;
+    }
+
+    li:nth-child(3) {
+      order: -1;
+    }
+  </style>
+</head>
+<body>
+<h1>order越小，排序越靠前。默认为0，可以为负值</h1>
+<ul>
+  <li>第1个li，order：3</li>
+  <li>第2个li，order：-2</li>
+  <li>第3个li，order：-1</li>
+  <li>第4个li，order：0（默认）</li>
+</ul>
+</body>
+</html>

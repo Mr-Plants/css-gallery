@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      background: chartreuse;
+    }
+
+    li:nth-child(2) {
+      background: blueviolet;
+    }
+
+    li:nth-child {
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+<h2>默认为0，都不放大</h2>
+<ul>
+  <li>0</li>
+  <li>0</li>
+  <li>0</li>
+</ul>
+
+<h2>全部设置1，等比例分配剩余空间</h2>
+<ul>
+  <li style="flex-grow: 1">1</li>
+  <li style="flex-grow: 1">1</li>
+  <li style="flex-grow: 1">1</li>
+</ul>
+
+<h2>自由设置，按比例分配剩余空间</h2>
+<ul>
+  <li style="flex-grow: 0">0</li>
+  <li style="flex-grow: 1">1</li>
+  <li style="flex-grow: 2">2</li>
+</ul>
+
+<h2>栅格布局</h2>
+<ul>
+  <li style="flex-grow: 1">1</li>
+  <li style="flex-grow: 1">1</li>
+  <li style="flex-grow: 2">2</li>
+</ul>
+
+<h2>栅格布局</h2>
+<ul>
+  <li style="flex-grow: 1">1</li>
+  <li style="flex-grow: 3">3</li>
+  <li style="flex-grow: 9">9</li>
+</ul>
+</body>
+</html>
