@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .circle {
-            /*默认初始值flex-grow:0;flex-shrink:1;flex-basic:auto;*/
-            flex: initial;
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      margin: 0;
+    }
 
-            /*flex-grow:0;flex-shrink:0;flex-basic:auto;*/
-            /*既不放大，也不缩小*/
-            flex: none;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+    }
 
-            /*flex-grow:1;flex-shrink:1;flex-basic:auto;*/
-            /*空间充足就放大，不足就缩小*/
-            flex: auto;
-
-            /*flex-grow:1;flex-shrink:1;flex-basic: 0%;*/
-            flex: 1;
-
-            /*flex-grow:1;flex-shrink:1;flex-basic:100px;*/
-            flex: 100px;
-
-            /*flex-grow:1;flex-shrink:1;flex-basic:100px;*/
-            flex: 1 100px;
-
-            /*flex-grow:1;flex-shrink:0;flex-basic:0%;*/
-            flex: 1 0;
-
-            /*flex-grow:1;flex-shrink:0;flex-basic:100px; */
-            flex: 1 0 100px;
-        }
-    </style>
+    li {
+      border: 1px solid gold;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
-<div class="container" style="flex: 100px">flex:100px</div>
-<div class="container" style="flex: initial">flex:initial</div>
-<div class="container" style="flex: none">flex:none</div>
-<div class="container" style="flex: auto">flex:auto</div>
+<p>flex: none | auto | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]</p>
+<p>1、范张，范鑫和范旭每人100万固定家产，范帅和范哥则20万保底家产。</p>
+<p>2、如果范闲归西那天家产还有富余，范帅和范哥按照3:2比例分配；</p>
+<p>3、如果没有剩余财产，则范张，范鑫和范旭三位兄长按照2:1:1的比例给两人匀20万保底家产。</p>
+
+<ul>
+  <!--不能膨胀，按照2：1：1比例和老二老三缩小，固定100万家产-->
+  <li class="one" style="flex: 0 2 100px">老大</li>
+  <!--不能膨胀，按照2：1：1比例和老二老三缩小，固定100万家产-->
+  <!--也可以简写为flex:100px-->
+  <li class="two" style="flex: 0 1 100px">老二</li>
+  <!--不能膨胀，按照2：1：1比例和老二老三缩小，固定100万家产-->
+  <li class="three" style="flex: 0 1 100px">老三</li>
+  <!--保底20万，有富余和老五按照3：2膨胀分配多余的，不能缩小-->
+  <li class="four" style="flex: 3 0 20px">老四</li>
+  <!--保底20万，有富余和老四按照3：2膨胀分配多余的，不能缩小-->
+  <li class="five" style="flex: 2 0 20px">老五</li>
+</ul>
+<div style="flex: 1">23333</div>
 </body>
 </html>

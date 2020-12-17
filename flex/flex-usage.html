@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .circle {
+            /*默认初始值flex-grow:0;flex-shrink:1;flex-basic:auto;*/
+            flex: initial;
+
+            /*flex-grow:0;flex-shrink:0;flex-basic:auto;*/
+            /*既不放大，也不缩小*/
+            flex: none;
+
+            /*flex-grow:1;flex-shrink:1;flex-basic:auto;*/
+            /*空间充足就放大，不足就缩小*/
+            flex: auto;
+
+            /*flex-grow:1;flex-shrink:1;flex-basic: 0%;*/
+            flex: 1;
+
+            /*flex-grow:1;flex-shrink:1;flex-basic:100px;*/
+            flex: 100px;
+
+            /*flex-grow:1;flex-shrink:1;flex-basic:100px;*/
+            flex: 1 100px;
+
+            /*flex-grow:1;flex-shrink:0;flex-basic:0%;*/
+            flex: 1 0;
+
+            /*flex-grow:1;flex-shrink:0;flex-basic:100px; */
+            flex: 1 0 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="flex: 100px">flex:100px</div>
+<div class="container" style="flex: initial">flex:initial</div>
+<div class="container" style="flex: none">flex:none</div>
+<div class="container" style="flex: auto">flex:auto</div>
+</body>
+</html>
