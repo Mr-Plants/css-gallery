@@ -5,18 +5,19 @@
     <title>Title</title>
     <style>
         .circle {
-            /*默认初始值flex-grow:0;flex-shrink:1;flex-basic:auto;*/
+            /*默认初始值，等价于flex:0 1 auto;*/
             flex: initial;
 
-            /*flex-grow:0;flex-shrink:0;flex-basic:auto;*/
+            /*等价于flex:0 0 auto;*/
             /*既不放大，也不缩小*/
             flex: none;
 
-            /*flex-grow:1;flex-shrink:1;flex-basic:auto;*/
+            /*等价于flex:1 1 auto;*/
             /*空间充足就放大，不足就缩小*/
             flex: auto;
 
-            /*flex-grow:1;flex-shrink:1;flex-basic: 0%;*/
+            /*等价于flex:1 1 0%;*/
+            /*空间富余会放大，空间不足会缩小*/
             flex: 1;
 
             /*flex-grow:1;flex-shrink:1;flex-basic:100px;*/
@@ -28,7 +29,6 @@
             /*flex-grow:1;flex-shrink:0;flex-basic:0%;*/
             flex: 1 0;
 
-            /*flex-grow:1;flex-shrink:0;flex-basic:100px; */
             flex: 1 0 100px;
         }
     </style>
