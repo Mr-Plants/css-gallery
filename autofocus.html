@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" id="input">
+  <button onclick="clickAction()">click me</button>
+  <button @click="go">vue</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+  function clickAction() {
+    const input = document.querySelector('#input')
+    input.focus();
+  }
+
+  const vue = new Vue({
+    el: '#app',
+    data: {
+      focus2: false
+    },
+    updated() {
+      console.log(2)
+      document.querySelector('#input').focus();
+    },
+
+    methods: {
+      go() {
+        document.querySelector('#input').focus();
+        console.log(233)
+        this.focus = true;
+      }
+    }
+  })
+</script>
+</body>
+</html>

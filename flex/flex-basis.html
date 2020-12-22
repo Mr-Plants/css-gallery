@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      background: chartreuse;
+    }
+
+    li:nth-child(2) {
+      background: blueviolet;
+    }
+
+    li:nth-child {
+      background: yellow;
+    }
+
+    .auto > li {
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .item {
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+<h2>默认为auto，宽（高）为元素真实的width/height，没有设置则为？？</h2>
+<ul class="auto">
+  <li>今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。</li>
+  <li>auto</li>
+  <li>和谐</li>
+</ul>
+
+<p>展示优先级：flex-basis>width>content-width</p>
+<h3>如果什么也不设置，相当于flex:0 1 auto;按照内容宽度展示</h3>
+<div class="container">
+  <!--什么也不设置就-->
+  <div class="item">什么也不设置什么也不设置什么也不设置什么也不设置什么也不设置</div>
+  <div class="item" style="width: 100px">width: 100px;flex-basis: auto</div>
+  <!--todo 为什么即使设置了flex:0 0 70px;在英文单词不换行的基础上宽度仍然会变？-->
+  <div class="item" style="width: 100px;flex-basis: 70px;">flex-basis: 70px; flex-basis: 70px</div>
+  <!--max-width独步武林-->
+  <div class="item" style="width: 100px;flex-basis: 70px;max-width: 40px;">width: 100px;flex-basis: 70px;max-width: 40px;</div>
+</div>
+</body>
+</html>
