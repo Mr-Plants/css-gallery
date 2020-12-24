@@ -32,10 +32,20 @@
 
     .container {
       display: flex;
+      margin: 20px 0;
     }
 
     .item {
-      border: 1px solid orange;
+      background: rebeccapurple;
+      box-sizing: border-box;
+    }
+
+    .item:nth-child(2) {
+      background: plum;
+    }
+
+    .flex-none .item {
+      flex: none;
     }
   </style>
 </head>
@@ -47,16 +57,45 @@
   <li>和谐</li>
 </ul>
 
-<p>展示优先级：flex-basis>width>content-width</p>
-<h3>如果什么也不设置，相当于flex:0 1 auto;按照内容宽度展示</h3>
+<p>展示优先级：max-width || min-width > flex-basis > width > content-width</p>
+
+<p>最终宽度 = Max(自身尺寸，basis宽度)</p>
+<p>自身尺寸 = Max(min-content,width)</p>
 <div class="container">
-  <!--什么也不设置就-->
+  <!--什么也不设置就按照-->
   <div class="item">什么也不设置什么也不设置什么也不设置什么也不设置什么也不设置</div>
+  <!--如果设置了width，没有-->
   <div class="item" style="width: 100px">width: 100px;flex-basis: auto</div>
   <!--todo 为什么即使设置了flex:0 0 70px;在英文单词不换行的基础上宽度仍然会变？-->
-  <div class="item" style="width: 100px;flex-basis: 70px;">flex-basis: 70px; flex-basis: 70px</div>
+  <!--如果设置了basis宽度（不为auto），则-->
+  <div class="item" style="width: 100px;flex-basis: 70px;">flex-basis: 70px;flex-basis: 70px</div>
   <!--max-width独步武林-->
-  <div class="item" style="width: 100px;flex-basis: 70px;max-width: 40px;">width: 100px;flex-basis: 70px;max-width: 40px;</div>
+  <div class="item" style="width: 100px;flex-basis: 70px;max-width: 40px;">width: 100px;flex-basis: 70px;max-width:
+    40px;
+  </div>
+</div>
+
+<div class="container flex-none">
+  <div class="item">123213</div>
+  <div class="item">这是一段测试这是一段测试这是一段测试这是一段测试这是一段测试</div>
+  <div class="item">width: 100px;flex-basis: 70px;</div>
+</div>
+
+<div class="container" style="width: 300px">
+  <div class="item" style="width: 50px;">width: 50px;</div>
+  <div class="item" style="flex: 2 1 100px;">flex: 2 1 100px;</div>
+  <div class="item" style="flex: 50px;">flex: 50px;</div>
+</div>
+
+<div class="container" style="width: 100px">
+  <!--<div class="item" style="flex: 0 0 50px;">50</div>-->
+  <!--42.86-->
+  <div class="item" style="flex: 1 2 100px;">1</div>
+  <!--35.72-->
+  <div class="item" style="flex: 1 1 50px;">5</div>
+  <!--21.42-->
+  <div class="item" style="flex: 1 2 50px;">5</div>
+  <!--50*2+50*1+100*2-->
 </div>
 </body>
 </html>
