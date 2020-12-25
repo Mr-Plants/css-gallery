@@ -40,17 +40,25 @@
       box-sizing: border-box;
     }
 
-    .item:nth-child(2) {
+    .item:nth-child(2n) {
       background: plum;
     }
 
     .flex-none .item {
       flex: none;
     }
+
+    /*不设置第一个，太骚了*/
+    /*.item + .item {*/
+    /*  border-left: 1px solid red;*/
+    /*}*/
+
+    .item:not(1) {
+      border-left: 1px solid yellow;
+    }
   </style>
 </head>
 <body>
-<h2>默认为auto，宽（高）为元素真实的width/height，没有设置则为？？</h2>
 <ul class="auto">
   <li>今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。今天天气好晴朗，处处好风光。</li>
   <li>auto</li>
@@ -66,7 +74,6 @@
   <div class="item">什么也不设置什么也不设置什么也不设置什么也不设置什么也不设置</div>
   <!--如果设置了width，没有-->
   <div class="item" style="width: 100px">width: 100px;flex-basis: auto</div>
-  <!--todo 为什么即使设置了flex:0 0 70px;在英文单词不换行的基础上宽度仍然会变？-->
   <!--如果设置了basis宽度（不为auto），则-->
   <div class="item" style="width: 100px;flex-basis: 70px;">flex-basis: 70px;flex-basis: 70px</div>
   <!--max-width独步武林-->
@@ -96,6 +103,49 @@
   <!--21.42-->
   <div class="item" style="flex: 1 2 50px;">5</div>
   <!--50*2+50*1+100*2-->
+</div>
+
+<div class="container">
+  <div class="item" style="flex:0;">floccinaucinihilipipification</div>
+  <!--min-content超过flex-basis，宽度展开-->
+  <div class="item" style="flex: 0 0 100px;">floccinaucinihilipipification</div>
+  <div class="item" style="flex: none;">floccinaucinihilipipification</div>
+</div>
+
+<p>flex-basis为auto、0%、100px的对比</p>
+<div class="container">
+  <div class="item">默认值不会换行默认值不会换行默认值不会换行</div>
+  <div class="item" style="flex:0;">为零就是一柱擎天</div>
+  <div class="item" style="flex: 0 0 100px;">设置了一百像素设置了一百像素设置了一百像素</div>
+</div>
+<p>flex:1，等宽布局，比如横向菜单栏</p>
+<div class="container">
+  <div class="item" style="flex: 1">我是一大串中文可以随意换行</div>
+  <div class="item" style="flex: 1">我是一大串中文可以随意换行我是一大串中文可以随意换行</div>
+  <div class="item" style="flex: 1">我是一大串中文可以随意换行</div>
+  <div class="item" style="flex: 1">我是一大串中文可以随意换行我是一大串中文可以随意换行我是一大串中文可以随意换行</div>
+</div>
+<p>flex:auto，宽度按照内容等比例设置，比如横向菜单栏</p>
+<div class="container">
+  <div class="item" style="flex: auto">我是一大串中文可以随意换行</div>
+  <div class="item" style="flex: auto">我是一大串中文可以随意换行我是一大串中文可以随意换行</div>
+  <div class="item" style="flex: auto">我是一大串中文可以随意换行</div>
+  <div class="item" style="flex: auto">我是一大串中文可以随意换行我是一大串中文可以随意换行我是一大串中文可以随意换行</div>
+</div>
+
+<p>全部为auto且不够宽时</p>
+<div class="container">
+  <div class="item" style="flex: auto">1</div>
+  <div class="item" style="flex: auto">11</div>
+  <div class="item" style="flex: auto">111</div>
+  <div class="item" style="flex: auto">1</div>
+</div>
+<p>全部为默认</p>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">11</div>
+  <div class="item">111</div>
+  <div class="item">1</div>
 </div>
 </body>
 </html>
